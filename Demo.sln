@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.GrainInterfaces", "Demo.GrainInterfaces\Demo.GrainInterfaces.csproj", "{991ED6C7-BEA7-4A85-AFE9-F60DBEEA8BEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.GrainImplementations", "Demo.GrainImplementations\Demo.GrainImplementations.csproj", "{F50B72A9-8512-43CA-9B2A-088454D76034}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns.SmartCache", "Patterns.SmartCache\Patterns.SmartCache.csproj", "{882A8FDB-A5FE-4376-9ABE-903BFBE47294}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns.Registry", "Patterns.Registry\Patterns.Registry.csproj", "{7C3E1222-29E3-46BA-81BF-F1D854DC16FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns.DevBreadboard", "Patterns.DevBreadboard\Patterns.DevBreadboard.csproj", "{8414CE71-E0F7-4134-8D7A-424ADCCEEA31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.SiloHost", "Demo.SiloHost\Demo.SiloHost.csproj", "{E8CA2DF7-9D74-45C9-BAAE-A5EE81ADAE9C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{991ED6C7-BEA7-4A85-AFE9-F60DBEEA8BEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{991ED6C7-BEA7-4A85-AFE9-F60DBEEA8BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{991ED6C7-BEA7-4A85-AFE9-F60DBEEA8BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{991ED6C7-BEA7-4A85-AFE9-F60DBEEA8BEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F50B72A9-8512-43CA-9B2A-088454D76034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F50B72A9-8512-43CA-9B2A-088454D76034}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F50B72A9-8512-43CA-9B2A-088454D76034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F50B72A9-8512-43CA-9B2A-088454D76034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{882A8FDB-A5FE-4376-9ABE-903BFBE47294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{882A8FDB-A5FE-4376-9ABE-903BFBE47294}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{882A8FDB-A5FE-4376-9ABE-903BFBE47294}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{882A8FDB-A5FE-4376-9ABE-903BFBE47294}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C3E1222-29E3-46BA-81BF-F1D854DC16FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C3E1222-29E3-46BA-81BF-F1D854DC16FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C3E1222-29E3-46BA-81BF-F1D854DC16FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C3E1222-29E3-46BA-81BF-F1D854DC16FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8414CE71-E0F7-4134-8D7A-424ADCCEEA31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8414CE71-E0F7-4134-8D7A-424ADCCEEA31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8414CE71-E0F7-4134-8D7A-424ADCCEEA31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8414CE71-E0F7-4134-8D7A-424ADCCEEA31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8CA2DF7-9D74-45C9-BAAE-A5EE81ADAE9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8CA2DF7-9D74-45C9-BAAE-A5EE81ADAE9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8CA2DF7-9D74-45C9-BAAE-A5EE81ADAE9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8CA2DF7-9D74-45C9-BAAE-A5EE81ADAE9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
