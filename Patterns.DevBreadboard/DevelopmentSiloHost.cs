@@ -7,17 +7,17 @@ namespace Patterns.DevBreadboard
 {
     public class DevelopmentSiloHost : IDisposable
     {
-        private static SiloHost _siloHost;
         private readonly AppDomain _hostDomain;
 
-        // The Cluster config is quirky and weird to configure in code, so we're going to use a config file
-        public DevelopmentSiloHost()
+        public DevelopmentSiloHost(string configurationFileName = "OrleansConfiguration.xml", string appDomainName = "DevelopmentSiloHost")
         {
-            _hostDomain = AppDomain.CreateDomain("DevelopmentSiloHost", null,
-                new AppDomainSetup
-                {
-                    AppDomainInitializer = InitSilo
-                });
+            var appDomainSetup = new AppDomainSetup
+            {
+                AppDomainInitializer = InitSilo,
+                AppDomainInitializerArguments = new [] {configurationFileName}
+            };
+
+            _hostDomain = AppDomain.CreateDomain(appDomainName, null, appDomainSetup);
         }
 
         public void Dispose()
@@ -28,29 +28,32 @@ namespace Patterns.DevBreadboard
         private static void InitSilo(string[] args)
         {
             var siloName = Dns.GetHostName();
-
-            _siloHost = new SiloHost(siloName)
+            var siloHost = new SiloHost(siloName)
             {
-                ConfigFileName = "OrleansConfiguration.xml",
+                ConfigFileName = args[0],
                 Type = Silo.SiloType.Primary
             };
 
-            _siloHost.InitializeOrleansSilo();
+            siloHost.InitializeOrleansSilo();
 
-            if (!_siloHost.StartOrleansSilo())
+            if (!siloHost.StartOrleansSilo())
             {
                 throw new SystemException(
-                    $"Failed to start Orleans silo '{_siloHost.Name}' as a {_siloHost.Type} node");
+                    $"Failed to start Orleans silo '{siloHost.Name}' as a {siloHost.Type} node");
             }
+
+            AppDomain.CurrentDomain.SetData("siloHost", siloHost);
         }
 
         private static void ShutdownSilo()
         {
-            if (_siloHost == null) return;
+            var siloHost = AppDomain.CurrentDomain.GetData("siloHost") as SiloHost;
+            if (siloHost == null) return;
 
-            _siloHost.Dispose();
-            GC.SuppressFinalize(_siloHost);
-            _siloHost = null;
+            siloHost.Dispose();
+            GC.SuppressFinalize(siloHost);
+
+            AppDomain.CurrentDomain.SetData("siloHost", null);
         }
 
         public static void WaitForInteraction()
