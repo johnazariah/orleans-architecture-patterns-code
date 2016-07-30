@@ -2,16 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Orleans;
+using Patterns.EventSourcing.Interface;
 
-namespace Patterns.EventSourcing
+namespace Patterns.EventSourcing.Implementation
 {
-    public interface IEventSourcedGrain<TEventType, TGrainState> : IGrainWithGuidKey
-        where TGrainState : ICanApplyEvent<TEventType, TGrainState>
-    {
-        Task<TGrainState> GetState();
-        Task<List<TimestampedEvent<TEventType>>> GetEvents();
-    }
-
     public abstract class EventSourcedGrain<TEventType, TGrainState> :
         Grain<EventSourcedGrainState<TEventType, TGrainState>>,
         IEventSourcedGrain<TEventType, TGrainState>

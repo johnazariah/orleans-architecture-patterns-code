@@ -50,10 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TimestampedEvent.cs" />
-    <Compile Include="EventSourcedGrain.cs" />
-    <Compile Include="EventSourcedGrainState.cs" />
-    <Compile Include="ICanApplyEvent.cs" />
+    <Compile Include="Interface\IEventSourcedGrain.cs" />
+    <Compile Include="Interface\TimestampedEvent.cs" />
+    <Compile Include="Implementation\EventSourcedGrain.cs" />
+    <Compile Include="Implementation\EventSourcedGrainState.cs" />
+    <Compile Include="Interface\ICanApplyEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

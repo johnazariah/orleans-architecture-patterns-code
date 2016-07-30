@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using Patterns.EventSourcing;
+using Patterns.EventSourcing.Interface;
 
 namespace Demo.SmartCache.GrainInterfaces
 {

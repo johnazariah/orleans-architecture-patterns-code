@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.SiloHost", "Demo.SiloH
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns.EventSourcing", "Patterns.EventSourcing\Patterns.EventSourcing.csproj", "{E84B0BC9-6E02-4A86-B1FA-65175F7FACC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns.MaterializedView", "Patterns.MaterializedView\Patterns.MaterializedView.csproj", "{741B7DDC-FA72-4E24-A1A5-C9AF93938707}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{E84B0BC9-6E02-4A86-B1FA-65175F7FACC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E84B0BC9-6E02-4A86-B1FA-65175F7FACC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E84B0BC9-6E02-4A86-B1FA-65175F7FACC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{741B7DDC-FA72-4E24-A1A5-C9AF93938707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{741B7DDC-FA72-4E24-A1A5-C9AF93938707}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{741B7DDC-FA72-4E24-A1A5-C9AF93938707}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{741B7DDC-FA72-4E24-A1A5-C9AF93938707}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

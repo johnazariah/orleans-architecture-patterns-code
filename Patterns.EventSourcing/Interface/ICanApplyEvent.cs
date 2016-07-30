@@ -1,4 +1,4 @@
-﻿namespace Patterns.EventSourcing
+﻿namespace Patterns.EventSourcing.Interface
 {
     public interface ICanApplyEvent<TEvent, TState>
     {

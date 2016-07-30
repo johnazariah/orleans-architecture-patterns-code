@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Demo.SmartCache.GrainInterfaces;
 using Orleans.Providers;
-using Patterns.EventSourcing;
+using Patterns.EventSourcing.Implementation;
 
 namespace Demo.SmartCache.GrainImplementations
 {

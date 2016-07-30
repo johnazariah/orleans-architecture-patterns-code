@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Patterns.EventSourcing
+namespace Patterns.EventSourcing.Interface
 {
     [Serializable]
     public class TimestampedEvent<TEvent>
