@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BankBalanceEventSourcedGrain.cs" />
     <Compile Include="CatalogItemGrain.cs" />
     <Compile Include="CatalogItemRegistryGrain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -61,6 +62,10 @@
     <ProjectReference Include="..\Demo.GrainInterfaces\Demo.GrainInterfaces.csproj">
       <Project>{991ed6c7-bea7-4a85-afe9-f60dbeea8bef}</Project>
       <Name>Demo.GrainInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Patterns.EventSourcing\Patterns.EventSourcing.csproj">
+      <Project>{e84b0bc9-6e02-4a86-b1fa-65175f7facc8}</Project>
+      <Name>Patterns.EventSourcing</Name>
     </ProjectReference>
     <ProjectReference Include="..\Patterns.Registry\Patterns.Registry.csproj">
       <Project>{7c3e1222-29e3-46ba-81bf-f1d854dc16fd}</Project>

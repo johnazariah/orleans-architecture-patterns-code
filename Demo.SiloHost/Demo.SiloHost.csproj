@@ -93,8 +93,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="EventSourcingDemo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistryDemo.cs" />
+    <Compile Include="SmartCacheDemo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -112,6 +116,10 @@
     <ProjectReference Include="..\Patterns.DevBreadboard\Patterns.DevBreadboard.csproj">
       <Project>{8414ce71-e0f7-4134-8d7a-424adcceea31}</Project>
       <Name>Patterns.DevBreadboard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Patterns.EventSourcing\Patterns.EventSourcing.csproj">
+      <Project>{E84B0BC9-6E02-4A86-B1FA-65175F7FACC8}</Project>
+      <Name>Patterns.EventSourcing</Name>
     </ProjectReference>
     <ProjectReference Include="..\Patterns.Registry\Patterns.Registry.csproj">
       <Project>{7c3e1222-29e3-46ba-81bf-f1d854dc16fd}</Project>

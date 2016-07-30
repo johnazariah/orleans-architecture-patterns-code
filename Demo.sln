@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns.DevBreadboard", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.SiloHost", "Demo.SiloHost\Demo.SiloHost.csproj", "{E8CA2DF7-9D74-45C9-BAAE-A5EE81ADAE9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns.EventSourcing", "Patterns.EventSourcing\Patterns.EventSourcing.csproj", "{E84B0BC9-6E02-4A86-B1FA-65175F7FACC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{E8CA2DF7-9D74-45C9-BAAE-A5EE81ADAE9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8CA2DF7-9D74-45C9-BAAE-A5EE81ADAE9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8CA2DF7-9D74-45C9-BAAE-A5EE81ADAE9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E84B0BC9-6E02-4A86-B1FA-65175F7FACC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E84B0BC9-6E02-4A86-B1FA-65175F7FACC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E84B0BC9-6E02-4A86-B1FA-65175F7FACC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E84B0BC9-6E02-4A86-B1FA-65175F7FACC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

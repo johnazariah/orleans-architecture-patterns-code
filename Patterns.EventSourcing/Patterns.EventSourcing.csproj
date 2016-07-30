@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{991ED6C7-BEA7-4A85-AFE9-F60DBEEA8BEF}</ProjectGuid>
+    <ProjectGuid>{E84B0BC9-6E02-4A86-B1FA-65175F7FACC8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Demo.SmartCache.GrainInterfaces</RootNamespace>
-    <AssemblyName>Demo.SmartCache.GrainInterfaces</AssemblyName>
+    <RootNamespace>Patterns.EventSourcing</RootNamespace>
+    <AssemblyName>Patterns.EventSourcing</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -50,29 +50,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IBankBalanceEventSourcedGrain.cs" />
-    <Compile Include="ICatalogItemGrain.cs" />
-    <Compile Include="ICatalogItemRegistryGrain.cs" />
+    <Compile Include="TimestampedEvent.cs" />
+    <Compile Include="EventSourcedGrain.cs" />
+    <Compile Include="EventSourcedGrainState.cs" />
+    <Compile Include="ICanApplyEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Patterns.EventSourcing\Patterns.EventSourcing.csproj">
-      <Project>{e84b0bc9-6e02-4a86-b1fa-65175f7facc8}</Project>
-      <Name>Patterns.EventSourcing</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Patterns.Registry\Patterns.Registry.csproj">
-      <Project>{7c3e1222-29e3-46ba-81bf-f1d854dc16fd}</Project>
-      <Name>Patterns.Registry</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Patterns.SmartCache\Patterns.SmartCache.csproj">
-      <Project>{882a8fdb-a5fe-4376-9abe-903bfbe47294}</Project>
-      <Name>Patterns.SmartCache</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Orleans.OrleansCodeGenerator.Build.1.2.3\build\Microsoft.Orleans.OrleansCodeGenerator.Build.targets" Condition="Exists('..\packages\Microsoft.Orleans.OrleansCodeGenerator.Build.1.2.3\build\Microsoft.Orleans.OrleansCodeGenerator.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Orleans.OrleansCodeGenerator.Build.1.2.3\build\Microsoft.Orleans.OrleansCodeGenerator.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Orleans.OrleansCodeGenerator.Build.1.2.3\build\Microsoft.Orleans.OrleansCodeGenerator.Build.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

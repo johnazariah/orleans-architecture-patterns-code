@@ -5,6 +5,7 @@
     <StorageProviders>
       <Provider Type="Orleans.Storage.MemoryStorage" Name="RegistryStore" />
       <Provider Type="Orleans.Storage.MemoryStorage" Name="RegistryItemStore" />
+      <Provider Type="Orleans.Storage.MemoryStorage" Name="EventStore" />
       <!-- To use Azure storage, uncomment one of the following lines: -->
       <!--<Provider Type="Orleans.Storage.AzureTableStorage" Name="AzureStore" DataConnectionString="UseDevelopmentStorage=true" />-->
       <!--<Provider Type="Orleans.Storage.AzureTableStorage" Name="AzureStore" DataConnectionString="DefaultEndpointsProtocol=https;AccountName=MYACCOUNTNAME;AccountKey=MYACCOUNTKEY" />-->
