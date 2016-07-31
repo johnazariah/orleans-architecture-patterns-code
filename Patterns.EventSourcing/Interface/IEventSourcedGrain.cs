@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Orleans;
@@ -9,6 +10,6 @@ namespace Patterns.EventSourcing.Interface
     {
         Task<TGrainState> GetState();
 
-        Task<List<TimestampedEvent<TEvent>>> GetEvents();
+        Task<List<TimestampedValue<TEvent>>> GetEvents(DateTime? startTime = null, DateTime? endTime = null);
     }
 }

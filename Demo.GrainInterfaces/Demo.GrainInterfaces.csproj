@@ -50,7 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IBankBalanceEventSourcedGrain.cs" />
+    <Compile Include="State\BankAccountAggregateBalance.cs" />
+    <Compile Include="State\BankAccountOperation.cs" />
+    <Compile Include="State\BankAccountState.cs" />
+    <Compile Include="State\CatalogItem.cs" />
+    <Compile Include="IBankAccountAggregateGrain.cs" />
+    <Compile Include="IBankAccountGrain.cs" />
     <Compile Include="ICatalogItemGrain.cs" />
     <Compile Include="ICatalogItemRegistryGrain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,6 +67,10 @@
     <ProjectReference Include="..\Patterns.EventSourcing\Patterns.EventSourcing.csproj">
       <Project>{e84b0bc9-6e02-4a86-b1fa-65175f7facc8}</Project>
       <Name>Patterns.EventSourcing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Patterns.Aggregates\Patterns.Aggregates.csproj">
+      <Project>{741B7DDC-FA72-4E24-A1A5-C9AF93938707}</Project>
+      <Name>Patterns.Aggregates</Name>
     </ProjectReference>
     <ProjectReference Include="..\Patterns.Registry\Patterns.Registry.csproj">
       <Project>{7c3e1222-29e3-46ba-81bf-f1d854dc16fd}</Project>

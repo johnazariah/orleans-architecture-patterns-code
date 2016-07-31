@@ -1,4 +1,5 @@
 using Demo.SmartCache.GrainInterfaces;
+using Demo.SmartCache.GrainInterfaces.State;
 using Orleans.Providers;
 using Patterns.SmartCache.Implementation;
 

@@ -1,15 +1,14 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Orleans;
-using Patterns.SmartCache.Interface;
 
 namespace Patterns.Registry.Interface
 {
-    public interface IRegistryGrain<TRegistryItem, TRegistryItemGrain> : IGrainWithGuidKey
-        where TRegistryItemGrain : ICachedItemGrain<TRegistryItem>
+    public interface IRegistryGrain<TRegisteredGrain> : IGrainWithGuidKey
+        where TRegisteredGrain : IGrain
     {
-        Task<TRegistryItemGrain> RegisterItem(TRegistryItemGrain item);
+        Task<TRegisteredGrain> RegisterGrain(TRegisteredGrain item);
 
-        Task<List<TRegistryItemGrain>> ListItems();
+        Task<List<TRegisteredGrain>> GetRegisteredGrains();
     }
 }

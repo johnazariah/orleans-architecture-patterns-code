@@ -10,15 +10,18 @@ namespace Patterns.SmartCache.Host
         public static void Run()
         {
             var bankBalanceGrain =
-                GrainClient.GrainFactory.GetGrain<IBankBalanceEventSourcedGrain>(Constants.BankBalanceGrainId);
+                GrainClient.GrainFactory.GetGrain<IBankAccountGrain>(Constants.SingleBankAccountGrainId);
 
-            bankBalanceGrain.CreditAmount(100.0M).Wait();
-            bankBalanceGrain.DebitAmount(50.0M).Wait();
-            bankBalanceGrain.CreditAmount(50.0M).Wait();
+            bankBalanceGrain.CreditAmount(100.0M)
+                            .Wait();
+            bankBalanceGrain.DebitAmount(50.0M)
+                            .Wait();
+            bankBalanceGrain.CreditAmount(50.0M)
+                            .Wait();
 
             var currentBalance = bankBalanceGrain.GetState()
                                                  .Result;
-            Console.WriteLine(currentBalance.BalanceAmount);
+            Console.WriteLine(currentBalance.Balance);
 
             var history = bankBalanceGrain.GetEvents()
                                           .Result;

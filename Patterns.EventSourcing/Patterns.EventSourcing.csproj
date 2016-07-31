@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interface\IEventSourcedGrain.cs" />
-    <Compile Include="Interface\TimestampedEvent.cs" />
+    <Compile Include="Interface\TimestampedValue.cs" />
     <Compile Include="Implementation\EventSourcedGrain.cs" />
     <Compile Include="Implementation\EventSourcedGrainState.cs" />
     <Compile Include="Interface\ICanApplyEvent.cs" />

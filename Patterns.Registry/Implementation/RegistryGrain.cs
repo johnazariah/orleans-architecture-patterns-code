@@ -4,26 +4,25 @@ using System.Threading.Tasks;
 using Orleans;
 using Orleans.Providers;
 using Patterns.Registry.Interface;
-using Patterns.SmartCache.Interface;
 
 namespace Patterns.Registry.Implementation
 {
     [StorageProvider(ProviderName = "RegistryStore")]
-    public abstract class RegistryGrain<TRegistryItem, TRegistryItemGrain> : Grain<RegistryState<TRegistryItemGrain>>,
-        IRegistryGrain<TRegistryItem, TRegistryItemGrain> where TRegistryItemGrain : ICachedItemGrain<TRegistryItem>
+    public abstract class RegistryGrain<TRegisteredGrain> : Grain<RegistryState<TRegisteredGrain>>,
+        IRegistryGrain<TRegisteredGrain> where TRegisteredGrain : IGrain
     {
-        public Task<List<TRegistryItemGrain>> ListItems()
+        public Task<List<TRegisteredGrain>> GetRegisteredGrains()
         {
-            return Task.FromResult(State.ItemGrains.ToList());
+            return Task.FromResult(State.RegisteredGrains.ToList());
         }
 
-        public async Task<TRegistryItemGrain> RegisterItem(TRegistryItemGrain item)
+        public async Task<TRegisteredGrain> RegisterGrain(TRegisteredGrain item)
         {
-            if (State.ItemGrains == null)
+            if (State.RegisteredGrains == null)
             {
-                State.ItemGrains = new HashSet<TRegistryItemGrain>();
+                State.RegisteredGrains = new HashSet<TRegisteredGrain>();
             }
-            State.ItemGrains.Add(item);
+            State.RegisteredGrains.Add(item);
             await WriteStateAsync();
             return item;
         }

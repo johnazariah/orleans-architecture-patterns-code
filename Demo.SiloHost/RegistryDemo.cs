@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Demo.SmartCache.GrainInterfaces;
+using Demo.SmartCache.GrainInterfaces.State;
 using Orleans;
 using Patterns.DevBreadboard;
 
@@ -24,7 +25,7 @@ namespace Patterns.SmartCache.Host
 
                 var grain = GrainClient.GrainFactory.GetGrain<ICatalogItemGrain>(grainId);
                 await grain.SetItem(grainState);
-                await registryGrain.RegisterItem(grain);
+                await registryGrain.RegisterGrain(grain);
             };
 
         private static Task SetupCatalog()
@@ -38,7 +39,7 @@ namespace Patterns.SmartCache.Host
         private static async Task ReadCatalog()
         {
             var catalogRegistry = GrainClient.GrainFactory.GetGrain<ICatalogItemRegistryGrain>(Constants.RegistryId);
-            var items = await catalogRegistry.ListItems();
+            var items = await catalogRegistry.GetRegisteredGrains();
             foreach (var item in items)
             {
                 var state = await item.GetItem();

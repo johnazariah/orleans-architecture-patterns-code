@@ -5,7 +5,7 @@ using Patterns.Registry.Implementation;
 namespace Demo.SmartCache.GrainImplementations
 {
     [StorageProvider(ProviderName = "RegistryStore")]
-    public class CatalogItemRegistryGrain : RegistryGrain<CatalogItem, ICatalogItemGrain>, ICatalogItemRegistryGrain
+    public class CatalogItemRegistryGrain : RegistryGrain<ICatalogItemGrain>, ICatalogItemRegistryGrain
     {
     }
 

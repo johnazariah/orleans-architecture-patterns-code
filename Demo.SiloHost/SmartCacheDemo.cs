@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Demo.SmartCache.GrainInterfaces;
+using Demo.SmartCache.GrainInterfaces.State;
 using Orleans;
 using Patterns.DevBreadboard;
 

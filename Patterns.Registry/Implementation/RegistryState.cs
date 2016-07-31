@@ -4,8 +4,8 @@ using System.Collections.Generic;
 namespace Patterns.Registry.Implementation
 {
     [Serializable]
-    public class RegistryState<TRegistryItemGrain>
+    public class RegistryState<TRegisteredGrain>
     {
-        public HashSet<TRegistryItemGrain> ItemGrains { get; set; } = new HashSet<TRegistryItemGrain>();
+        public HashSet<TRegisteredGrain> RegisteredGrains { get; set; } = new HashSet<TRegisteredGrain>();
     }
 }

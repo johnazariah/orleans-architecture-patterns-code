@@ -22,6 +22,23 @@ namespace Patterns.SmartCache.Host
         }.Select(Guid.Parse)
          .ToArray();
 
-        public static readonly Guid BankBalanceGrainId = Guid.Parse("{d77f552a-7b4f-48fd-9f0e-ef4394cee3d2}");
+        public static readonly Guid SingleBankAccountGrainId = Guid.Parse("{d77f552a-7b4f-48fd-9f0e-ef4394cee3d2}");
+
+        public static readonly Guid[] BankAccountGrainIds = new[]
+        {
+            "{6b66f0ea-b329-4483-b78b-108f4df62eee}",
+            "{d970e4cd-3a27-4ec4-b356-0e22e67c8424}",
+            "{77359a61-1f9e-4152-a0ea-7b55039347d9}",
+            "{c0f72fa5-da95-4166-8a60-1fac49820f3a}",
+            "{bc29f955-ab93-4e7c-b264-59e1ffbc2ffc}",
+            "{090a8ba8-1c17-4338-801f-245be0a610f5}",
+            "{9c3d599b-0cac-4882-9244-12df92dc4da5}",
+            "{22447804-74e6-4a7f-aa8c-e8cd0dc851aa}",
+            "{740cf2dd-30be-4555-8f5b-3ee9f875b187}",
+            "{1a5f0a25-7965-4e22-92cf-127f0c462048}"
+        }.Select(Guid.Parse)
+         .ToArray();
+
+        public static readonly Guid BankAccountAggregateGrainId = Guid.Parse("{d77f552a-7b4f-48fd-9f0e-ef4394cee3d2}");
     }
 }
