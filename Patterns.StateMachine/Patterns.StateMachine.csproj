@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{991ED6C7-BEA7-4A85-AFE9-F60DBEEA8BEF}</ProjectGuid>
+    <ProjectGuid>{28734ACC-806D-4D7E-BD37-276337BC4B34}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Demo.SmartCache.GrainInterfaces</RootNamespace>
-    <AssemblyName>Demo.SmartCache.GrainInterfaces</AssemblyName>
+    <RootNamespace>Patterns.StateMachine</RootNamespace>
+    <AssemblyName>Patterns.StateMachine</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -32,10 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Orleans, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Orleans.Core.1.2.3\lib\net451\Orleans.dll</HintPath>
       <Private>True</Private>
@@ -50,47 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="State\BankAccountStateMachineBalance.cs" />
-    <Compile Include="State\BankAccountStateMachineData.cs" />
-    <Compile Include="State\BankAccountStateMachineMessage.cs" />
-    <Compile Include="State\BankAccountStateMachineState.cs" />
-    <Compile Include="State\BankAccountStateMachineAmount.cs" />
-    <Compile Include="IBankAccountStateMachineGrain.cs" />
-    <Compile Include="State\BankAccountAggregateBalance.cs" />
-    <Compile Include="State\BankAccountOperation.cs" />
-    <Compile Include="State\BankAccountState.cs" />
-    <Compile Include="State\CatalogItem.cs" />
-    <Compile Include="IBankAccountAggregateGrain.cs" />
-    <Compile Include="IBankAccountGrain.cs" />
-    <Compile Include="ICatalogItemGrain.cs" />
-    <Compile Include="ICatalogItemRegistryGrain.cs" />
+    <Compile Include="Interface\IStateMachineGrain.cs" />
+    <Compile Include="Implementation\StateMachineGrain.cs" />
+    <Compile Include="Implementation\StateMachineGrainState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Patterns.EventSourcing\Patterns.EventSourcing.csproj">
-      <Project>{e84b0bc9-6e02-4a86-b1fa-65175f7facc8}</Project>
-      <Name>Patterns.EventSourcing</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Patterns.Aggregates\Patterns.Aggregates.csproj">
-      <Project>{741B7DDC-FA72-4E24-A1A5-C9AF93938707}</Project>
-      <Name>Patterns.Aggregates</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Patterns.Registry\Patterns.Registry.csproj">
-      <Project>{7c3e1222-29e3-46ba-81bf-f1d854dc16fd}</Project>
-      <Name>Patterns.Registry</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Patterns.SmartCache\Patterns.SmartCache.csproj">
-      <Project>{882a8fdb-a5fe-4376-9abe-903bfbe47294}</Project>
-      <Name>Patterns.SmartCache</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Patterns.StateMachine\Patterns.StateMachine.csproj">
-      <Project>{28734ACC-806D-4D7E-BD37-276337BC4B34}</Project>
-      <Name>Patterns.StateMachine</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

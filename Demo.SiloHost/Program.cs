@@ -11,9 +11,9 @@ namespace Patterns.SmartCache.Host
             {
                 using (new DevelopmentOrleansClientContext())
                 {
-                    //SmartCacheDemo.Run();
-                    //RegistryDemo.Run();
-                    //EventSourcingDemo.Run();
+                    SmartCacheDemo.Run();
+                    RegistryDemo.Run();
+                    EventSourcingDemo.Run();
                     AggregateDemo.Run();
                 }
             }

@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="BankAccountAggregateGrain.cs" />
     <Compile Include="BankAccountGrain.cs" />
+    <Compile Include="BankAccountStateMachineGrain.cs" />
     <Compile Include="CatalogItemGrain.cs" />
     <Compile Include="CatalogItemRegistryGrain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,6 +80,10 @@
     <ProjectReference Include="..\Patterns.SmartCache\Patterns.SmartCache.csproj">
       <Project>{882a8fdb-a5fe-4376-9abe-903bfbe47294}</Project>
       <Name>Patterns.SmartCache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Patterns.StateMachine\Patterns.StateMachine.csproj">
+      <Project>{28734ACC-806D-4D7E-BD37-276337BC4B34}</Project>
+      <Name>Patterns.StateMachine</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

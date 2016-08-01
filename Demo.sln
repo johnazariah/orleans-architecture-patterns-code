@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns.EventSourcing", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns.Aggregates", "Patterns.Aggregates\Patterns.Aggregates.csproj", "{741B7DDC-FA72-4E24-A1A5-C9AF93938707}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns.StateMachine", "Patterns.StateMachine\Patterns.StateMachine.csproj", "{28734ACC-806D-4D7E-BD37-276337BC4B34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +62,10 @@ Global
 		{741B7DDC-FA72-4E24-A1A5-C9AF93938707}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{741B7DDC-FA72-4E24-A1A5-C9AF93938707}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{741B7DDC-FA72-4E24-A1A5-C9AF93938707}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28734ACC-806D-4D7E-BD37-276337BC4B34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28734ACC-806D-4D7E-BD37-276337BC4B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28734ACC-806D-4D7E-BD37-276337BC4B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28734ACC-806D-4D7E-BD37-276337BC4B34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
