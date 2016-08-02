@@ -3,9 +3,9 @@ using Orleans;
 
 namespace Patterns.SmartCache.Interface
 {
-    public interface ICachedItemGrain<TRegistryItem> : IGrainWithGuidKey
+    public interface ICachedItemGrain<TItem> : IGrainWithGuidKey
     {
-        Task<TRegistryItem> GetItem();
-        Task<TRegistryItem> SetItem(TRegistryItem item);
+        Task<TItem> GetItem();
+        Task<TItem> SetItem(TItem item);
     }
 }
