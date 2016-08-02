@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.GrainInterfaces", "Demo.GrainInterfaces\Demo.GrainInterfaces.csproj", "{991ED6C7-BEA7-4A85-AFE9-F60DBEEA8BEF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{741B7DDC-FA72-4E24-A1A5-C9AF93938707} = {741B7DDC-FA72-4E24-A1A5-C9AF93938707}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.GrainImplementations", "Demo.GrainImplementations\Demo.GrainImplementations.csproj", "{F50B72A9-8512-43CA-9B2A-088454D76034}"
 EndProject
