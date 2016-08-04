@@ -59,7 +59,7 @@ namespace Patterns.DevBreadboard
 
         public static void WaitForInteraction()
         {
-            Console.WriteLine("Orleans Silo is running.\nPress Enter to terminate...");
+            Console.WriteLine("Orleans Silo is running.\nPress Enter to continue...");
             Console.ReadLine();
         }
     }
