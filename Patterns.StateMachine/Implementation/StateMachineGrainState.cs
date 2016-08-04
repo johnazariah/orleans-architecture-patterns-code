@@ -5,7 +5,7 @@ namespace Patterns.StateMachine.Implementation
     public class StateMachineGrainState<TStateMachineData, TStateMachineState> :
         Tuple<TStateMachineData, TStateMachineState> where TStateMachineState : class
     {
-        public StateMachineGrainState(TStateMachineData stateMachineData, TStateMachineState stateMachineState)
+        protected StateMachineGrainState(TStateMachineData stateMachineData, TStateMachineState stateMachineState)
             : base(stateMachineData, stateMachineState)
         {
         }

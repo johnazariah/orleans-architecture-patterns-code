@@ -8,6 +8,17 @@ using Patterns.DevBreadboard;
 
 namespace Patterns.SmartCache.Host
 {
+    //internal class StateMachineDemo
+    //{
+    //    public static void Run()
+    //    {
+    //        InitializeStateMachine()
+    //            .ContinueWith(_ => ReadItems())
+    //            .ContinueWith(_ => DevelopmentSiloHost.WaitForInteraction())
+    //            .Wait();
+    //    }
+    //}
+
     internal class SmartCacheDemo
     {
         public static async Task CreateCatalogItem(Guid id, int index)

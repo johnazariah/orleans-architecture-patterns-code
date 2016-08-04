@@ -2,6 +2,7 @@ using System;
 
 namespace Demo.SmartCache.GrainInterfaces.State
 {
+    [Serializable]
     public abstract class BankAccountStateMachineState
     {
         public static readonly BankAccountStateMachineState ZeroBalanceStateMachineState =
@@ -26,6 +27,7 @@ namespace Demo.SmartCache.GrainInterfaces.State
         private static class ChoiceTypes
         {
             // ReSharper disable MemberHidesStaticFromOuterClass
+            [Serializable]
             public class ZeroBalanceStateMachineState : BankAccountStateMachineState
             {
                 public override T Match<T>(
@@ -35,6 +37,7 @@ namespace Demo.SmartCache.GrainInterfaces.State
                     Func<T> closedStateFunc) => zeroBalanceStateFunc();
             }
 
+            [Serializable]
             public class ActiveStateMachineState : BankAccountStateMachineState
             {
                 public override T Match<T>(
@@ -44,6 +47,7 @@ namespace Demo.SmartCache.GrainInterfaces.State
                     Func<T> closedStateFunc) => activeStateFunc();
             }
 
+            [Serializable]
             public class OverdrawnStateMachineState : BankAccountStateMachineState
             {
                 public override T Match<T>(
@@ -53,6 +57,7 @@ namespace Demo.SmartCache.GrainInterfaces.State
                     Func<T> closedStateFunc) => overdrawnStateFunc();
             }
 
+            [Serializable]
             public class ClosedStateMachineState : BankAccountStateMachineState
             {
                 public override T Match<T>(

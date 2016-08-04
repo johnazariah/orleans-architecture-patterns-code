@@ -1,5 +1,6 @@
 using System;
 using Orleans;
+using Orleans.Runtime;
 using Orleans.Runtime.Configuration;
 
 namespace Patterns.DevBreadboard
@@ -9,6 +10,7 @@ namespace Patterns.DevBreadboard
         public DevelopmentOrleansClientContext()
         {
             var config = ClientConfiguration.LocalhostSilo(30000);
+            config.DefaultTraceLevel = Severity.Warning;
             GrainClient.Initialize(config);
         }
 

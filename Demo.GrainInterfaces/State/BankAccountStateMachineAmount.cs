@@ -2,8 +2,13 @@ using System;
 
 namespace Demo.SmartCache.GrainInterfaces.State
 {
+    [Serializable]
     public class BankAccountStateMachineAmount : IComparable
     {
+        public BankAccountStateMachineAmount() : this(decimal.Zero)
+        {
+        }
+
         public BankAccountStateMachineAmount(decimal value)
         {
             Value = value;

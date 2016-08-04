@@ -13,6 +13,7 @@ namespace Demo.SmartCache.GrainImplementations
         public Task<BankAccountState> CreditAmount(decimal amount)
             => ProcessEvent(BankAccountOperation.NewCredit(amount));
 
-        public Task<BankAccountState> DebitAmount(decimal amount) => ProcessEvent(BankAccountOperation.NewDebit(amount));
+        public Task<BankAccountState> DebitAmount(decimal amount) 
+            => ProcessEvent(BankAccountOperation.NewDebit(amount));
     }
 }

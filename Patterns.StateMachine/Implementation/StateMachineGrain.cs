@@ -37,16 +37,5 @@ namespace Patterns.StateMachine.Implementation
 
         protected abstract Func<TGrainState, TStateMachineMessage, Task<TGrainState>> GetProcessorFunc(
             TStateMachineState state);
-
-        public class InvalidMessage : Exception
-        {
-            public InvalidMessage() : base("Invalid message")
-            {
-            }
-
-            public InvalidMessage(TStateMachineMessage message) : base($"Invalid message : {message}")
-            {
-            }
-        }
     }
 }

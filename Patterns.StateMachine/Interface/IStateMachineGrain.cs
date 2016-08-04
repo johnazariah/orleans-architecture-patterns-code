@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Orleans;
 
 namespace Patterns.StateMachine.Interface
@@ -7,4 +8,17 @@ namespace Patterns.StateMachine.Interface
     {
         Task<TStateMachineData> ProcessMessage(TStateMachineMessage message);
     }
+
+    [Serializable]
+    public class InvalidMessage : Exception
+    {
+        public InvalidMessage() : base("Invalid message")
+        {
+        }
+
+        //public InvalidMessage(TStateMachineMessage message) : base($"Invalid message : {message}")
+        //{
+        //}
+    }
+
 }

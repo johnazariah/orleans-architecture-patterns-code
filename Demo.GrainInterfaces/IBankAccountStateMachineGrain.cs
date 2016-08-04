@@ -8,8 +8,10 @@ namespace Demo.SmartCache.GrainInterfaces
     public interface IBankAccountStateMachineGrain :
         IStateMachineGrain<BankAccountStateMachineData, BankAccountStateMachineMessage>
     {
+        Task<BankAccountStateMachineData> GetBalance();
+
         Task<BankAccountStateMachineData> Deposit(BankAccountStateMachineAmount bankAccountStateMachineAmount);
-        Task<BankAccountStateMachineData> Withdrawal(BankAccountStateMachineAmount bankAccountStateMachineAmount);
+        Task<BankAccountStateMachineData> Withdraw(BankAccountStateMachineAmount bankAccountStateMachineAmount);
         Task<BankAccountStateMachineData> Close();
     }
 }

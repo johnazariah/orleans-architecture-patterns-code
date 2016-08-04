@@ -100,6 +100,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistryDemo.cs" />
     <Compile Include="SmartCacheDemo.cs" />
+    <Compile Include="StateMachineDemo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -133,6 +134,10 @@
     <ProjectReference Include="..\Patterns.SmartCache\Patterns.SmartCache.csproj">
       <Project>{882a8fdb-a5fe-4376-9abe-903bfbe47294}</Project>
       <Name>Patterns.SmartCache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Patterns.StateMachine\Patterns.StateMachine.csproj">
+      <Project>{28734ACC-806D-4D7E-BD37-276337BC4B34}</Project>
+      <Name>Patterns.StateMachine</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

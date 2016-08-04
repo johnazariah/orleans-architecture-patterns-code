@@ -2,6 +2,7 @@ using System;
 
 namespace Demo.SmartCache.GrainInterfaces.State
 {
+    [Serializable]
     public abstract partial class BankAccountStateMachineBalance
     {
         public static readonly BankAccountStateMachineBalance ZeroBankAccountStateMachineBalance =
@@ -24,6 +25,7 @@ namespace Demo.SmartCache.GrainInterfaces.State
         private static partial class ChoiceTypes
         {
             // ReSharper disable MemberHidesStaticFromOuterClass
+            [Serializable]
             public partial class ZeroBankAccountStateMachineBalance : BankAccountStateMachineBalance
             {
                 public override TResult Match<TResult>(Func<TResult> zeroBalanceFunc,
@@ -32,6 +34,7 @@ namespace Demo.SmartCache.GrainInterfaces.State
             }
 
             // ReSharper restore MemberHidesStaticFromOuterClass
+            [Serializable]
             public partial class ActiveBankAccountStateMachineBalance : BankAccountStateMachineBalance
             {
                 public ActiveBankAccountStateMachineBalance(BankAccountStateMachineAmount amount)
@@ -46,6 +49,7 @@ namespace Demo.SmartCache.GrainInterfaces.State
                     Func<BankAccountStateMachineAmount, TResult> overdrawnBalanceFunc) => activeBalanceFunc(Amount);
             }
 
+            [Serializable]
             public partial class OverdrawnBankAccountStateMachineBalance : BankAccountStateMachineBalance
             {
                 public OverdrawnBankAccountStateMachineBalance(BankAccountStateMachineAmount amount)
@@ -84,7 +88,6 @@ namespace Demo.SmartCache.GrainInterfaces.State
             }
 
             // ReSharper restore MemberHidesStaticFromOuterClass
-
             public partial class ActiveBankAccountStateMachineBalance
             {
                 public override BankAccountStateMachineBalance Deposit(BankAccountStateMachineAmount amount)

@@ -31,7 +31,8 @@ namespace Patterns.DevBreadboard
             var siloHost = new SiloHost(siloName)
             {
                 ConfigFileName = args[0],
-                Type = Silo.SiloType.Primary
+                Type = Silo.SiloType.Primary,
+                Verbose = 0
             };
 
             siloHost.InitializeOrleansSilo();

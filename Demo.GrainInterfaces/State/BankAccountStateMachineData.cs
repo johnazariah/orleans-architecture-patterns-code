@@ -2,24 +2,21 @@ using System;
 
 namespace Demo.SmartCache.GrainInterfaces.State
 {
-    public abstract class BankAccountStateMachineData
+    [Serializable]
+    public class BankAccountStateMachineData
     {
-        public static Balance NewBalance(BankAccountStateMachineBalance bankAccountStateMachineBalance)
-            => new Balance(bankAccountStateMachineBalance);
-
-        public T Match<T>(Func<Balance, T> balanceFunc)
+        public BankAccountStateMachineData() : this(BankAccountStateMachineBalance.ZeroBankAccountStateMachineBalance)
         {
-            return balanceFunc((Balance) this);
         }
 
-        public class Balance : BankAccountStateMachineData
+        protected BankAccountStateMachineData(BankAccountStateMachineBalance bankAccountStateMachineBalance)
         {
-            public Balance(BankAccountStateMachineBalance bankAccountStateMachineBalance)
-            {
-                Item = bankAccountStateMachineBalance;
-            }
-
-            public BankAccountStateMachineBalance Item { get; }
+            Balance = bankAccountStateMachineBalance;
         }
+
+        public BankAccountStateMachineBalance Balance { get; set; }
+
+        public static BankAccountStateMachineData NewBalance(BankAccountStateMachineBalance balance)
+            => new BankAccountStateMachineData(balance);
     }
 }

@@ -2,51 +2,44 @@ using System;
 using System.Threading.Tasks;
 using Demo.SmartCache.GrainInterfaces;
 using Demo.SmartCache.GrainInterfaces.State;
+using Orleans.Providers;
 using Patterns.StateMachine.Implementation;
 
 namespace Demo.SmartCache.GrainImplementations
 {
-    public class BankAccountStateMachineGrainState :
-        StateMachineGrainState<BankAccountStateMachineData, BankAccountStateMachineState>
-    {
-        public BankAccountStateMachineGrainState(BankAccountStateMachineData stateMachineData,
-            BankAccountStateMachineState stateMachineState)
-            : base(stateMachineData, stateMachineState)
-        {
-        }
-    }
+    using TProcessorFunc =
+        Func<BankAccountStateMachineGrainState, BankAccountStateMachineMessage, Task<BankAccountStateMachineGrainState>>
+        ;
 
+    [StorageProvider(ProviderName = "EventStore")]
     public partial class BankAccountStateMachineGrain :
         StateMachineGrain
             <BankAccountStateMachineGrainState, BankAccountStateMachineData, BankAccountStateMachineState,
                 BankAccountStateMachineMessage>,
         IBankAccountStateMachineGrain
     {
+        public Task<BankAccountStateMachineData> GetBalance()
+        {
+            return Task.FromResult(State.StateMachineData);
+        }
+
         public async Task<BankAccountStateMachineData> Deposit(BankAccountStateMachineAmount amount)
             => await ProcessMessage(BankAccountStateMachineMessage.NewDepositMessage(amount));
 
-        public async Task<BankAccountStateMachineData> Withdrawal(BankAccountStateMachineAmount amount)
+        public async Task<BankAccountStateMachineData> Withdraw(BankAccountStateMachineAmount amount)
             => await ProcessMessage(BankAccountStateMachineMessage.NewWithdrawMessage(amount));
 
         public async Task<BankAccountStateMachineData> Close()
             => await ProcessMessage(BankAccountStateMachineMessage.CloseMessage);
 
-        protected override
-            Func
-                <BankAccountStateMachineGrainState, BankAccountStateMachineMessage,
-                    Task<BankAccountStateMachineGrainState>> GetProcessorFunc
-            (BankAccountStateMachineState state)
-            =>
-                state
-                    .Match
-                    <
-                        Func
-                            <BankAccountStateMachineGrainState, BankAccountStateMachineMessage,
-                                Task<BankAccountStateMachineGrainState>>>(
-                                    () => ZeroBalanceStateProcessor,
-                                    () => ActiveStateProcessor,
-                                    () => OverdrawnStateProcessor,
-                                    () => ClosedStateProcessor);
+        protected override TProcessorFunc GetProcessorFunc(BankAccountStateMachineState state)
+        {
+            return state.Match<TProcessorFunc>(
+                () => ZeroBalanceStateProcessor,
+                () => ActiveStateProcessor,
+                () => OverdrawnStateProcessor,
+                () => ClosedStateProcessor);
+        }
     }
 
     #region ZeroBalanceState
@@ -196,7 +189,7 @@ namespace Demo.SmartCache.GrainImplementations
             public Task<ZeroBalanceDepositResult> Deposit(BankAccountStateMachineGrainState state,
                 BankAccountStateMachineAmount amount)
             {
-                var newBalance = state.StateMachineData.Match(_ => _.Item.Deposit(amount));
+                var newBalance = state.StateMachineData.Balance.Deposit(amount);
 
                 var stateMachineData = BankAccountStateMachineData.NewBalance(newBalance);
                 var stateMachineState = ZeroBalanceDepositResultState.ActiveState;
@@ -379,7 +372,7 @@ namespace Demo.SmartCache.GrainImplementations
             public Task<ActiveDepositResult> Deposit(BankAccountStateMachineGrainState state,
                 BankAccountStateMachineAmount amount)
             {
-                var newBalance = state.StateMachineData.Match(_ => _.Item.Deposit(amount));
+                var newBalance = state.StateMachineData.Balance.Deposit(amount);
 
                 var stateMachineData = BankAccountStateMachineData.NewBalance(newBalance);
                 var stateMachineState = ActiveDepositResultState.ActiveState;
@@ -390,7 +383,7 @@ namespace Demo.SmartCache.GrainImplementations
             public Task<ActiveWithdrawResult> Withdraw(BankAccountStateMachineGrainState state,
                 BankAccountStateMachineAmount amount)
             {
-                var newBalance = state.StateMachineData.Match(_ => _.Item.Withdraw(amount));
+                var newBalance = state.StateMachineData.Balance.Withdraw(amount);
 
                 var stateMachineData = BankAccountStateMachineData.NewBalance(newBalance);
 
@@ -511,7 +504,7 @@ namespace Demo.SmartCache.GrainImplementations
             public Task<OverdrawnDepositResult> Deposit(BankAccountStateMachineGrainState state,
                 BankAccountStateMachineAmount amount)
             {
-                var newBalance = state.StateMachineData.Match(_ => _.Item.Deposit(amount));
+                var newBalance = state.StateMachineData.Balance.Deposit(amount);
 
                 var stateMachineData = BankAccountStateMachineData.NewBalance(newBalance);
 

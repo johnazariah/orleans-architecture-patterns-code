@@ -2,6 +2,7 @@ using System;
 
 namespace Demo.SmartCache.GrainInterfaces.State
 {
+    [Serializable]
     public abstract class BankAccountStateMachineMessage
     {
         public static readonly BankAccountStateMachineMessage CloseMessage =
@@ -24,6 +25,7 @@ namespace Demo.SmartCache.GrainInterfaces.State
         private static class ChoiceTypes
         {
             // ReSharper disable MemberHidesStaticFromOuterClass
+            [Serializable]
             public class CloseStateMachineMessage : BankAccountStateMachineMessage
             {
                 public override T Match<T>(
@@ -32,6 +34,7 @@ namespace Demo.SmartCache.GrainInterfaces.State
                     Func<BankAccountStateMachineAmount, T> withdrawMessageFunc) => closeMessageFunc();
             }
 
+            [Serializable]
             public class DepositStateMachineMessage : BankAccountStateMachineMessage
             {
                 public DepositStateMachineMessage(BankAccountStateMachineAmount item)
@@ -50,6 +53,7 @@ namespace Demo.SmartCache.GrainInterfaces.State
                 }
             }
 
+            [Serializable]
             public class WithdrawStateMachineMessage : BankAccountStateMachineMessage
             {
                 public WithdrawStateMachineMessage(BankAccountStateMachineAmount item)

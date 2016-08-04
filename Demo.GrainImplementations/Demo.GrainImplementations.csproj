@@ -53,6 +53,7 @@
     <Compile Include="BankAccountAggregateGrain.cs" />
     <Compile Include="BankAccountGrain.cs" />
     <Compile Include="BankAccountStateMachineGrain.cs" />
+    <Compile Include="BankAccountStateMachineGrainState.cs" />
     <Compile Include="CatalogItemGrain.cs" />
     <Compile Include="CatalogItemRegistryGrain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
